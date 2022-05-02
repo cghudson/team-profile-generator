@@ -1,13 +1,13 @@
 const Employee = require('../lib/Employee')
 
-test('create employee object', () => {
-    const employee = new Employee('Carolyn', 1, 'cghudson@uwalumni.com')
+test('Doees this set Employee object?', () => {
+    const employee = new Employee('name', 1, 'email')
 
-    expect(employee.name).toBe('Carolyn');
+    expect(employee.name).toBe('name');
     expect(employee.id).toBe(1)
-    expect(employee.email).toBe('cghudson@uwalumni.com')
-    expect(employee.getName()).toBe('Carolyn')
+    expect(employee.email).toBe('email')
+    expect(employee.getName()).toBe('name')
     expect(employee.getId()).toBe(1)
-    expect(employee.getEmail()).toBe('cghudson@uwalumni.com')
+    expect(employee.getEmail()).toBe('email')
     expect(employee.getRole()).toBe('Employee')
 })
