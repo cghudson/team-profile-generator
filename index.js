@@ -9,6 +9,7 @@ const renderHtml = require("./src/generateHTML");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
+const { create } = require("domain");
 
 const teamArray = [];
 
@@ -113,10 +114,19 @@ function start() {
           type: "list",
           name: "userChoice",
           message: "What would you like to do?",
-          choices: ["Add an Engineer", "Add an Intern", "Create my HTML"],
+          choices: ["Add an Engineer", "Add an Intern", "Finish creating my team!"],
         },
       ])
-      .then((res) => {});
+      .then((res) => {
+          if (res.menu === 'Add an Engineer') {
+              createEngineer()
+          } else if (res.menu === 'Add an Intern') {
+              createIntern()
+          } else {
+              console.log('Your team is complete!')
+            //   createTeam()
+          }
+      });
   }
 
   // inquirer.prompt([
