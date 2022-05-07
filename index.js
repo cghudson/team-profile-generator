@@ -75,6 +75,37 @@ function start() {
       });
   }
 
+  function createIntern() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "internName",
+          message: "What is the Intern's name?",
+        },
+        {
+          type: "input",
+          name: "engineerID",
+          message: "What is the Intern's ID number?",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "What is the Intern's email address?",
+        },
+        {
+          type: "input",
+          name: "officeNumber",
+          message: "What is the intern school?",
+        },
+      ])
+      .then((res) => {
+        const intern = new Intern(res.internName, res.internID, res.email, res.school);
+        teamArray.push(intern);
+        menu();
+      });
+  }
+
   function menu() {
     inquirer
       .prompt([
