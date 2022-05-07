@@ -1,7 +1,7 @@
 
 // create functionality that will filter out each employee type and have it return its own piece of html.
 
-function creatTeamHTML(team) {
+function createTeamHTML(team) {
     
 }
 
@@ -17,7 +17,7 @@ module.exports = data => {
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-   ${creatTeamHTML(data)}
+   ${createTeamHTML(data)}
 </body>
 </html>
     `

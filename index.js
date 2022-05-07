@@ -44,6 +44,37 @@ function start() {
       });
   }
 
+  function createEngineer() {
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "engineerName",
+          message: "What is the Engineer's name?",
+        },
+        {
+          type: "input",
+          name: "engineerID",
+          message: "What is the Engineer's ID number?",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "What is the Engineer's email address?",
+        },
+        {
+          type: "input",
+          name: "officeNumber",
+          message: "What is the Engineer's GitHub Username?",
+        },
+      ])
+      .then((res) => {
+        const engineer = new Engineer(res.engineerName, res.engineerID, res.email, res.officeNumber);
+        teamArray.push(engineer);
+        menu();
+      });
+  }
+
   function menu() {
     inquirer
       .prompt([
