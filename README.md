@@ -36,8 +36,15 @@
 
   ## Preview:
 
+  Image example of genrated Team Profile:
+
+  ![image of example team profile](./src/team-profile-generator.jpg)
+
   The following video demonstrates the Team Profile Generator's appearance and functionality:
 
+ 
+
+  https://drive.google.com/file/d/1ADkz30Zw36qpARqAlIKVKqDnXQCT0qRW/view
 
   ## License
 
