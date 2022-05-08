@@ -136,22 +136,26 @@ function menu() {
       },
     ])
     .then(res => {
-        if(res.menu === "Add an Engineer") {
+        if(res.userChoice === "Add an Engineer") {
             createEngineer()
-        } else if (res.menu === "Add an Intern") {
+        } else if (res.userChoice === "Add an Intern") {
             createIntern()
-        } else if (res.menu === "Finish creating my team!") {
+        } else if (res.userChoice === "Finish creating my team!") {
             console.log('Your team is complete!')
             createTeam()
         }
     });
 }
 
+createManager();
+
 function createTeam() {
   if (!fs.existsSync(MAIN_DIR)) {
     fs.mkdirSync(MAIN_DIR);
   }
-  fs.writeFileSync(filePath, renderHTML(teamArray), "utf-8");
+  fs.writeFileSync(filePath, renderHTML(teamArray), function(err) {
+      if (err) {
+          throw err;
+      }
+  });
 }
-
-createManager();
