@@ -14,9 +14,8 @@ const { create } = require("domain");
 const teamArray = [];
 
 // function start() {
-function createManager() {
-  inquirer
-    .prompt([
+const createManager = () => {
+  return inquirer.prompt([
       {
         type: "input",
         name: "managerName",
@@ -50,9 +49,8 @@ function createManager() {
     });
 }
 
-function createEngineer() {
-  inquirer
-    .prompt([
+const createEngineer = () => {
+  return inquirer.prompt([
       {
         type: "input",
         name: "engineerName",
@@ -86,9 +84,8 @@ function createEngineer() {
     });
 }
 
-function createIntern() {
-  inquirer
-    .prompt([
+const createIntern = () => {
+  return inquirer.prompt([
       {
         type: "input",
         name: "internName",
@@ -122,9 +119,8 @@ function createIntern() {
     });
 }
 
-function menu() {
-  inquirer
-    .prompt([
+const menu = () => {
+  return inquirer.prompt([
       {
         type: "list",
         name: "userChoice",
@@ -138,15 +134,18 @@ function menu() {
       },
     ])
     .then((res) => {
-      if (res.menu === "Add a Manager") {
-        createManager();
-      } else if (res.menu === "Add an Engineer") {
-        createEngineer();
-      } else if (res.menu === "Add an Intern") {
-        createIntern();
-      } else if (res.menu === "Finish creating my team!") {
-        console.log("Your team is complete!");
-        createTeam();
+      switch (res.menu) {
+        case "Add a Manager":
+          createManager();
+          break;
+        case "Add an Engineer":
+          createEngineer();
+          break;
+        case "Add an Intern":
+          createIntern();
+          break;
+        case "Finish creating my team!":
+          createTeam();
       }
     });
 }
