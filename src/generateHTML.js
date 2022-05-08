@@ -32,7 +32,7 @@ function createTeamHTML(team) {
                     <p class="list-group-item">Email: <a
                         href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
                     </p>
-                    <p class="list-group-item">GitHub: ${engineer.getGithub()}</p>
+                    <p class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank"> ${engineer.getGithub()}</a></p>
                 </div>
             </div>
         </div>
