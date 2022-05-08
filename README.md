@@ -3,7 +3,7 @@
 
   ## Description
 
-  This application is invoked using the command "node index.js". The user will be prompted to enter information for team members including a Manager, Engineers, and Interns. The user will input the Manager's name, ID, email, and office number. Then, there will be options to enter an Engineer, enter an Intern, or finish creating the team. The Engineer's information includes name, ID, email, and GitHub Username. The Intern's infrmation includes name, ID, email, and school. When the option to finish creating the team is selected, a HTML file will be created that displays all of the inputed information. 
+  This application is invoked using the command "node index.js". The user will be prompted to enter information for team members including a Manager, Engineers, and Interns. The user will input the Manager's name, ID, email, and office number. Then the user will be prompted with menu options to enter an Engineer, enter an Intern, or finish creating the team. The Engineer's information includes name, ID, email, and GitHub Username. The Intern's infromation includes name, ID, email, and school. When the option to finish creating the team is selected, a HTML file will be created that displays all of the inputted information. 
 
   ## Table of Contents
   * [Built With](#built-with)
@@ -36,15 +36,15 @@
 
   ## Preview:
 
-  Image example of genrated Team Profile:
-
-  ![image of example team profile](./src/team-profile-generator.jpg)
-
   The following GIF demonstrates the Team Profile Generator's appearance and functionality:
 
   ![gif of application functionallity](./src/teamProfileGenerator.gif)
 
   https://drive.google.com/file/d/1ADkz30Zw36qpARqAlIKVKqDnXQCT0qRW/view
+
+  Image example of generated Team Profile:
+
+  ![image of example team profile](./src/team-profile-generator.jpg)
 
   ## License
 
