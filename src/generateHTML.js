@@ -8,7 +8,7 @@ function createTeamHTML(team) {
             </div>
             <div class="card-body">
                 <div class="list-group list-group-flush">
-                    <p class="list-group-item">ID: ${manager.getID()} </p>
+                    <p class="list-group-item">ID: ${manager.getId()} </p>
                     <p class="list-group-item">Email: <a
                                     href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
                     </p>
@@ -28,11 +28,11 @@ function createTeamHTML(team) {
             </div>
             <div class="card-body">
                 <div class="list-group list-group-flush">
-                    <p class="list-group-item">ID: ${engineer.getID()}</p>
+                    <p class="list-group-item">ID: ${engineer.getId()}</p>
                     <p class="list-group-item">Email: <a
                         href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
                     </p>
-                    <p class="list-group-item">GitHub: ${engineer.getGitHub()}</p>
+                    <p class="list-group-item">GitHub: ${engineer.getGithub()}</p>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@ function createTeamHTML(team) {
             </div>
             <div class="card-body">
                 <div class="list-group list-group-flush">
-                    <p class="list-group-item">ID: ${intern.getID()}</p>
+                    <p class="list-group-item">ID: ${intern.getId()}</p>
                     <p class="list-group-item">Email: <a
                         href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
                     </p>

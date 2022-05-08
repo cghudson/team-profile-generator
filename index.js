@@ -95,7 +95,7 @@ function createIntern() {
       },
       {
         type: "input",
-        name: "engineerID",
+        name: "internID",
         message: "What is the Intern's ID number?",
       },
       {
@@ -105,8 +105,8 @@ function createIntern() {
       },
       {
         type: "input",
-        name: "officeNumber",
-        message: "What is the Intern school?",
+        name: "school",
+        message: "What is the Intern's school?",
       },
     ])
     .then(res => {
