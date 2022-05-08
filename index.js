@@ -13,9 +13,9 @@ const { create } = require("domain");
 
 const teamArray = [];
 
-// function start() {
-const createManager = () => {
-  return inquirer.prompt([
+function createManager() {
+  inquirer
+    .prompt([
       {
         type: "input",
         name: "managerName",
@@ -37,7 +37,7 @@ const createManager = () => {
         message: "What is the Manager's office number?",
       },
     ])
-    .then((res) => {
+    .then(res => {
       const manager = new Manager(
         res.managerName,
         res.managerID,
@@ -49,8 +49,9 @@ const createManager = () => {
     });
 }
 
-const createEngineer = () => {
-  return inquirer.prompt([
+function createEngineer() {
+  inquirer
+    .prompt([
       {
         type: "input",
         name: "engineerName",
@@ -72,7 +73,7 @@ const createEngineer = () => {
         message: "What is the Engineer's GitHub Username?",
       },
     ])
-    .then((res) => {
+    .then(res => {
       const engineer = new Engineer(
         res.engineerName,
         res.engineerID,
@@ -84,8 +85,9 @@ const createEngineer = () => {
     });
 }
 
-const createIntern = () => {
-  return inquirer.prompt([
+function createIntern() {
+  inquirer
+    .prompt([
       {
         type: "input",
         name: "internName",
@@ -104,10 +106,10 @@ const createIntern = () => {
       {
         type: "input",
         name: "officeNumber",
-        message: "What is the intern school?",
+        message: "What is the Intern school?",
       },
     ])
-    .then((res) => {
+    .then(res => {
       const intern = new Intern(
         res.internName,
         res.internID,
@@ -119,34 +121,29 @@ const createIntern = () => {
     });
 }
 
-const menu = () => {
-  return inquirer.prompt([
+function menu() {
+  inquirer
+    .prompt([
       {
         type: "list",
         name: "userChoice",
-        message: "What would you like to do?",
+        message: "What would you like to do next?",
         choices: [
-          "Add a Manager",
           "Add an Engineer",
           "Add an Intern",
           "Finish creating my team!",
         ],
       },
     ])
-    .then((res) => {
-      switch (res.menu) {
-        case "Add a Manager":
-          createManager();
-          break;
-        case "Add an Engineer":
-          createEngineer();
-          break;
-        case "Add an Intern":
-          createIntern();
-          break;
-        case "Finish creating my team!":
-          createTeam();
-      }
+    .then(res => {
+        if(res.menu === "Add an Engineer") {
+            createEngineer()
+        } else if (res.menu === "Add an Intern") {
+            createIntern()
+        } else if (res.menu === "Finish creating my team!") {
+            console.log('Your team is complete!')
+            createTeam()
+        }
     });
 }
 
@@ -157,20 +154,4 @@ function createTeam() {
   fs.writeFileSync(filePath, renderHTML(teamArray), "utf-8");
 }
 
-//   inquirer.prompt([
-//       {
-//           type: 'input',
-//           name: 'fullName',
-//           message: 'what is your full name?'
-//       }
-//   ]).then(res =>{
-//       if(!fs.existsSync(MAIN_DIR)){
-//           fs.mkdirSync(MAIN_DIR)
-//       }
-//       fs.writeFileSync(filePath, renderHTML(teamArray), 'utf-8')
-//   })
-
-// }
-
-// start();
-menu();
+createManager();
