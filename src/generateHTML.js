@@ -1,28 +1,86 @@
-// create functionality that will filter out each employee type and have it return its own piece of html.
-
 function createTeamHTML(team) {
-    const managerCard = manager => {
-        return `
+  const managerCard = (manager) => {
+    return `
         <div class="card m-4">
              <div class="card-header bg-primary bg-gradient text-light">
                 <h2 class="card-title">${manager.getName()}</h2>
-                <p class="card-title"><i class="fa-solid fa-mug-hot"></i> Manager</p>
+                <p class="card-title"><i class="fa-solid fa-mug-hot"></i> ${manager.getRole()}</p>
             </div>
             <div class="card-body">
                 <div class="list-group list-group-flush">
-                    <p class="list-group-item">ID: </p>
+                    <p class="list-group-item">ID: ${manager.getID()} </p>
                     <p class="list-group-item">Email: <a
-                                    href="mailto:cghudson@uwalumni.com">cghudson@uwalumni.com</a>
+                                    href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
                     </p>
-                    <p class="list-group-item">Office Number: </p>
+                    <p class="list-group-item">Office Number: ${manager.getOfficeNumber()}</p>
                 </div>
             </div>
         </div>
-        `
-    }
+        `;
+  };
+
+  const engineerCard = (engineer) => {
+    return `
+        <div class="card m-4">
+            <div class="card-header bg-primary bg-gradient text-light">
+                <h2 class="card-title">${engineer.getName()}</h2>
+                <p class="card-title"><i class="fa-solid fa-glasses"></i> ${engineer.getRole()}</p>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <p class="list-group-item">ID: ${engineer.getID()}</p>
+                    <p class="list-group-item">Email: <a
+                        href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+                    </p>
+                    <p class="list-group-item">GitHub: ${engineer.getGitHub()}</p>
+                </div>
+            </div>
+        </div>
+        `;
+  };
+
+  const internCard = (intern) => {
+    return `
+        <div class="card m-4">
+            <div class="card-header bg-primary bg-gradient text-light">
+                <h2 class="card-title">${intern.getName()}</h2>
+                <p class="card-title"><i class="fa-solid fa-user-graduate"></i> ${intern.getRole()}</p>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <p class="list-group-item">ID: ${intern.getID()}</p>
+                    <p class="list-group-item">Email: <a
+                        href="mailto:${intern.getEmail()}">${intern.getEmail()}</a>
+                    </p>
+                    <p class="list-group-item">School: ${intern.getSchool()}</p>
+                </div>
+            </div>
+        </div>
+        `;
+  };
+
+  const teamArray = [];
+  teamArray.push(
+    team
+      .filter((employee) => employee.getRole() === "Manager")
+      .map((manager) => managerCard(manager))
+  );
+  teamArray.push(
+    team
+      .filter((employee) => employee.getRole() === "Engineer")
+      .map((engineer) => engineerCard(engineer))
+      .join("")
+  );
+  teamArray.push(
+    team
+      .filter((employee) => employee.getRole() === "Intern")
+      .map((intern) => internCard(intern))
+      .join("")
+  );
+  return teamArray.join("")
 }
 
-module.exports = data => {
+module.exports = (team) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -46,7 +104,7 @@ module.exports = data => {
         <main class="container">
             <section class="row">
                 <div class="d-flex flex-wrap">
-                    ${createTeamHTML(data)}
+                    ${createTeamHTML(team)}
                 </div>
              </section>
         </main>
