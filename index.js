@@ -20,24 +20,56 @@ function createManager() {
         type: "input",
         name: "managerName",
         message: "What is the Manager's name?",
+        validate: (managerNameInput) => {
+          if (managerNameInput) {
+            return true;
+          } else {
+            console.log("Please enter the team Manager's name!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "managerID",
         message: "What is the Manager's ID number?",
+        validate: (managerIdInput) => {
+          if (managerIdInput) {
+            return true;
+          } else {
+            console.log("Please enter the team Manager's ID number!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "email",
         message: "What is the Manager's email address?",
+        validate: (emailInput) => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log("Please enter the team Manager's email address!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "officeNumber",
         message: "What is the Manager's office number?",
+        validate: (officeNumInput) => {
+          if (officeNumInput) {
+            return true;
+          } else {
+            console.log("Please enter the team Manager's office number!");
+            return false;
+          }
+        },
       },
     ])
-    .then(res => {
+    .then((res) => {
       const manager = new Manager(
         res.managerName,
         res.managerID,
@@ -56,24 +88,56 @@ function createEngineer() {
         type: "input",
         name: "engineerName",
         message: "What is the Engineer's name?",
+        validate: (engineerNameInput) => {
+          if (engineerNameInput) {
+            return true;
+          } else {
+            console.log("Please enter the Engineer's name!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "engineerID",
         message: "What is the Engineer's ID number?",
+        validate: (engineerIdInput) => {
+          if (engineerIdInput) {
+            return true;
+          } else {
+            console.log("Please enter the Engineer's ID number!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "email",
         message: "What is the Engineer's email address?",
+        validate: (emailInput) => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log("Please enter the Engineer's email address!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "officeNumber",
         message: "What is the Engineer's GitHub Username?",
+        validate: (officeNumInput) => {
+          if (officeNumInput) {
+            return true;
+          } else {
+            console.log("Please enter the Engineer's offce number!");
+            return false;
+          }
+        },
       },
     ])
-    .then(res => {
+    .then((res) => {
       const engineer = new Engineer(
         res.engineerName,
         res.engineerID,
@@ -92,24 +156,56 @@ function createIntern() {
         type: "input",
         name: "internName",
         message: "What is the Intern's name?",
+        validate: (internNameInput) => {
+          if (internNameInput) {
+            return true;
+          } else {
+            console.log("Please enter the Intern's name!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "internID",
         message: "What is the Intern's ID number?",
+        validate: (internIdInput) => {
+          if (internIdInput) {
+            return true;
+          } else {
+            console.log("Please enter Intern's ID number!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "email",
         message: "What is the Intern's email address?",
+        validate: (emailInput) => {
+          if (emailInput) {
+            return true;
+          } else {
+            console.log("Please enter the Intern's email address!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "school",
         message: "What is the Intern's school?",
+        validate: (schoolInput) => {
+          if (schoolInput) {
+            return true;
+          } else {
+            console.log("Please enter the Intern's school!");
+            return false;
+          }
+        },
       },
     ])
-    .then(res => {
+    .then((res) => {
       const intern = new Intern(
         res.internName,
         res.internID,
@@ -135,15 +231,15 @@ function menu() {
         ],
       },
     ])
-    .then(res => {
-        if(res.userChoice === "Add an Engineer") {
-            createEngineer()
-        } else if (res.userChoice === "Add an Intern") {
-            createIntern()
-        } else if (res.userChoice === "Finish creating my team!") {
-            console.log('Your team is complete!')
-            createTeam()
-        }
+    .then((res) => {
+      if (res.userChoice === "Add an Engineer") {
+        createEngineer();
+      } else if (res.userChoice === "Add an Intern") {
+        createIntern();
+      } else if (res.userChoice === "Finish creating my team!") {
+        console.log("Your team is complete!");
+        createTeam();
+      }
     });
 }
 
@@ -153,9 +249,9 @@ function createTeam() {
   if (!fs.existsSync(MAIN_DIR)) {
     fs.mkdirSync(MAIN_DIR);
   }
-  fs.writeFileSync(filePath, renderHTML(teamArray), function(err) {
-      if (err) {
-          throw err;
-      }
+  fs.writeFileSync(filePath, renderHTML(teamArray), function (err) {
+    if (err) {
+      throw err;
+    }
   });
 }
